@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EzzzCreative — Your website, handled.</title>
+  <meta name="description" content="Affordable websites and digital infrastructure for small businesses. Starting at $100/mo."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      background: #EEF3FC;
+      color: #0F1521;
+      min-height: 100vh;
+      padding: 48px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page { max-width: 480px; margin: 0 auto; }
+
+    /* ── Profile ── */
+    .profile { text-align: center; margin-bottom: 32px; }
+    .avatar-wrap {
+      width: 80px; height: 80px; border-radius: 16px;
+      margin: 0 auto 16px; overflow: hidden;
+      background: #1D60D4;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .avatar-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .avatar-letter {
+      font-size: 30px; font-weight: 800; color: #fff; letter-spacing: -1px;
+    }
+    .brand-name {
+      font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
+      color: #1D60D4; margin-bottom: 4px;
+    }
+    .brand-tagline { font-size: 14px; font-weight: 600; color: #0F1521; margin-bottom: 4px; }
+    .brand-sub { font-size: 12px; color: rgba(15,21,33,0.45); }
+
+    /* ── Value strip ── */
+    .value-strip {
+      display: flex; gap: 8px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 36px;
+    }
+    .value-pill {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+      background: #fff; border: 1px solid rgba(29,96,212,0.2);
+      color: #1D60D4; padding: 5px 12px; border-radius: 100px;
+    }
+
+    /* ── Quiz / funnel ── */
+    .quiz-section { margin-bottom: 28px; }
+    .quiz-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(15,21,33,0.35);
+      margin-bottom: 12px;
+    }
+    .quiz-headline {
+      font-size: 20px; font-weight: 800; letter-spacing: -0.4px;
+      margin-bottom: 16px; line-height: 1.2;
+    }
+    .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+    .quiz-btn {
+      display: flex; align-items: center; gap: 14px;
+      background: #fff; border: 2px solid #DDEAFC;
+      border-radius: 14px; padding: 16px 18px;
+      text-align: left; cursor: pointer; width: 100%;
+      transition: border-color 0.15s, transform 0.12s, box-shadow 0.15s;
+      font-family: inherit;
+    }
+    .quiz-btn:hover { border-color: #1D60D4; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(29,96,212,0.12); }
+    .quiz-btn.active { border-color: #1D60D4; background: #F5F8FF; }
+    .quiz-btn-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: #EEF3FC; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; font-size: 20px;
+    }
+    .quiz-btn-text { flex: 1; }
+    .quiz-btn-title { font-size: 14px; font-weight: 700; }
+    .quiz-btn-sub { font-size: 12px; color: rgba(15,21,33,0.45); margin-top: 2px; }
+    .quiz-btn-arrow { font-size: 16px; color: rgba(15,21,33,0.25); }
+
+    /* ── Plan reveal cards ── */
+    .plan-card {
+      display: none; margin-top: 16px;
+      background: #0F1521; border-radius: 20px;
+      padding: 28px 24px 24px; color: #EDEDEA;
+      animation: slideIn 0.25s ease-out;
+    }
+    .plan-card.visible { display: block; }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .plan-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #E91E8C; margin-bottom: 8px;
+    }
+    .plan-price {
+      font-size: 36px; font-weight: 800; letter-spacing: -1px;
+      color: #fff; margin-bottom: 4px;
+    }
+    .plan-price sup { font-size: 0.45em; vertical-align: super; opacity: 0.6; }
+    .plan-price sub { font-size: 0.35em; vertical-align: baseline; opacity: 0.5; font-weight: 500; }
+    .plan-desc { font-size: 13px; color: rgba(237,237,234,0.55); line-height: 1.6; margin-bottom: 18px; }
+    .plan-features { list-style: none; margin-bottom: 22px; display: flex; flex-direction: column; gap: 7px; }
+    .plan-features li { font-size: 13px; color: rgba(237,237,234,0.75); display: flex; gap: 8px; align-items: flex-start; }
+    .plan-features li::before { content: "✓"; color: #5BADFF; font-weight: 700; flex-shrink: 0; }
+    .plan-cta {
+      display: block; width: 100%; text-align: center;
+      background: #1D60D4; color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px; font-weight: 700;
+      padding: 14px 24px; border-radius: 100px;
+      text-decoration: none; transition: opacity 0.2s, transform 0.12s;
+    }
+    .plan-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    .plan-cta.pink { background: #E91E8C; }
+    .plan-link {
+      display: block; text-align: center; margin-top: 12px;
+      font-size: 12px; color: rgba(237,237,234,0.4);
+      text-decoration: underline; text-underline-offset: 3px;
+      cursor: pointer;
+    }
+    .plan-link:hover { color: rgba(237,237,234,0.7); }
+
+    /* ── Small links ── */
+    .section-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(15,21,33,0.35);
+      margin-bottom: 12px; margin-top: 32px;
+    }
+    .links { display: flex; flex-direction: column; gap: 8px; }
+    .link-card {
+      display: flex; align-items: center; gap: 12px;
+      background: #fff; border: 1px solid rgba(29,96,212,0.12);
+      border-radius: 12px; padding: 12px 16px;
+      text-decoration: none; color: #0F1521;
+      transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+    }
+    .link-card:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(29,96,212,0.1); border-color: #1D60D4; }
+    .link-icon { width: 34px; height: 34px; border-radius: 8px; background: #EEF3FC; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .link-icon svg { width: 17px; height: 17px; }
+    .link-text { flex: 1; }
+    .link-title { font-size: 13px; font-weight: 700; }
+    .link-sub { font-size: 11px; color: rgba(15,21,33,0.4); margin-top: 1px; }
+    .link-arrow { font-size: 14px; color: rgba(15,21,33,0.2); }
+
+    /* ── Footer ── */
+    .footer { text-align: center; margin-top: 36px; font-size: 11px; color: rgba(15,21,33,0.3); }
+    .footer a { color: rgba(15,21,33,0.3); text-decoration: none; }
+    .footer a:hover { color: #1D60D4; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- BRAND HEADER -->
+  <div class="profile">
+    <div class="avatar-wrap">
+      <!-- swap src to your logo file once available -->
+      <img src="./IMG_3502%203.png" alt="EzzzCreative"
+           onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'avatar-letter\'>E</span>'"/>
+    </div>
+    <div class="brand-name">EzzzCreative</div>
+    <div class="brand-tagline">Your website, handled.</div>
+    <div class="brand-sub">digital infrastructure for humans</div>
+  </div>
+
+  <!-- VALUE PILLS -->
+  <div class="value-strip">
+    <span class="value-pill">woman-owned</span>
+    <span class="value-pill">human-first</span>
+    <span class="value-pill">no tech overwhelm</span>
+    <span class="value-pill">🌱 climate-conscious</span>
+  </div>
+
+  <!-- QUIZ FUNNEL -->
+  <div class="quiz-section">
+    <p class="quiz-label">Find your fit</p>
+    <h2 class="quiz-headline">Where are you at<br>with your digital presence?</h2>
+    <div class="quiz-options">
+
+      <button class="quiz-btn" onclick="showPlan('starter', this)">
+        <div class="quiz-btn-icon">🌱</div>
+        <div class="quiz-btn-text">
+          <div class="quiz-btn-title">Just getting started</div>
+          <div class="quiz-btn-sub">I need a website and don't know where to begin</div>
+        </div>
+        <span class="quiz-btn-arrow">›</span>
+      </button>
+
+      <button class="quiz-btn" onclick="showPlan('growth', this)">
+        <div class="quiz-btn-icon">🚀</div>
+        <div class="quiz-btn-text">
+          <div class="quiz-btn-title">Ready to grow</div>
+          <div class="quiz-btn-sub">I have a presence but need strategy + real support</div>
+        </div>
+        <span class="quiz-btn-arrow">›</span>
+      </button>
+
+      <button class="quiz-btn" onclick="showPlan('unsure', this)">
+        <div class="quiz-btn-icon">🤔</div>
+        <div class="quiz-btn-text">
+          <div class="quiz-btn-title">Not sure yet</div>
+          <div class="quiz-btn-sub">Tell me what you're working on and I'll point you right</div>
+        </div>
+        <span class="quiz-btn-arrow">›</span>
+      </button>
+
+    </div>
+
+    <!-- Starter reveal -->
+    <div class="plan-card" id="plan-starter">
+      <div class="plan-tag">Starter Plan</div>
+      <div class="plan-price"><sup>$</sup>100<sub>/mo</sub></div>
+      <p class="plan-desc">We build your site free. $100/month keeps a dedicated designer in your corner — updates, fixes, and whatever comes next, handled in 48 hours.</p>
+      <ul class="plan-features">
+        <li>Website built for you at no upfront cost</li>
+        <li>Design updates & new pages in 48 hrs</li>
+        <li>Hosting, security & maintenance included</li>
+        <li>Cancel anytime, no lock-in</li>
+      </ul>
+      <a class="plan-cta" href="https://buy.stripe.com/4gM8wQaYtaTDbQm6Ef0kE02" target="_blank" rel="noopener">
+        Lock in Starter — $100/mo →
+      </a>
+      <a class="plan-link" onclick="showPlan('growth', document.querySelectorAll('.quiz-btn')[1])">
+        See Growth plan ($300/mo) →
+      </a>
+    </div>
+
+    <!-- Growth reveal -->
+    <div class="plan-card" id="plan-growth">
+      <div class="plan-tag">Growth Plan — Most popular</div>
+      <div class="plan-price"><sup>$</sup>300<sub>/mo</sub></div>
+      <p class="plan-desc">Everything in Starter plus up to 3 hours of consulting each month — strategy, marketing direction, and a real partner invested in your business growing.</p>
+      <ul class="plan-features">
+        <li>Everything in Starter</li>
+        <li>3 hrs/mo consulting (strategy, marketing, direction)</li>
+        <li>Monthly check-in calls</li>
+        <li>Priority 24-hour turnaround</li>
+      </ul>
+      <a class="plan-cta pink" href="https://buy.stripe.com/dRmfZi4A5f9T9Ie3s30kE01" target="_blank" rel="noopener">
+        Lock in Growth — $300/mo →
+      </a>
+      <a class="plan-link" onclick="showPlan('starter', document.querySelectorAll('.quiz-btn')[0])">
+        See Starter plan ($100/mo) →
+      </a>
+    </div>
+
+    <!-- Not sure reveal -->
+    <div class="plan-card" id="plan-unsure">
+      <div class="plan-tag">Let's figure it out</div>
+      <div class="plan-price" style="font-size:28px; letter-spacing: -0.5px;">Tell me<br>what you need.</div>
+      <p class="plan-desc" style="margin-top:12px;">Answer a few quick questions and I'll match you with the right starting point — no pressure, no sales pitch.</p>
+      <a class="plan-cta" href="https://tally.so/r/rjdxP5" target="_blank" rel="noopener">
+        Start the conversation →
+      </a>
+    </div>
+  </div>
+
+  <!-- SECONDARY LINKS -->
+  <p class="section-label">Explore more</p>
+  <div class="links">
+
+    <a class="link-card" href="https://ezzzcreative.com" target="_blank" rel="noopener">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1D60D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <div class="link-text"><div class="link-title">Full website</div><div class="link-sub">ezzzcreative.com</div></div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a class="link-card" href="https://substack.com/@designthedifference" target="_blank" rel="noopener">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="#1D60D4">
+          <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+        </svg>
+      </div>
+      <div class="link-text"><div class="link-title">Design the Difference</div><div class="link-sub">Tech insights for non-techies · Substack</div></div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a class="link-card" href="https://www.instagram.com/literally.ez" target="_blank" rel="noopener">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="#1D60D4">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+        </svg>
+      </div>
+      <div class="link-text"><div class="link-title">Behind the build</div><div class="link-sub">@literally.ez on Instagram</div></div>
+      <span class="link-arrow">›</span>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    <a href="https://ezzzcreative.com">ezzzcreative.com</a> · woman-owned · a portion of every project goes to carbon removal 🌱
+  </div>
+
+</div>
+
+<script>
+  var active = null;
+
+  function showPlan(plan, btn) {
+    // Deactivate all buttons
+    document.querySelectorAll('.quiz-btn').forEach(function(b) { b.classList.remove('active'); });
+    // Hide all cards
+    document.querySelectorAll('.plan-card').forEach(function(c) { c.classList.remove('visible'); });
+
+    if (active === plan) {
+      // Clicking same option again → close it
+      active = null;
+      return;
+    }
+
+    // Activate selected
+    btn.classList.add('active');
+    document.getElementById('plan-' + plan).classList.add('visible');
+    active = plan;
+
+    // Smooth scroll to card
+    setTimeout(function() {
+      document.getElementById('plan-' + plan).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 50);
+  }
+</script>
+</body>
+</html>
