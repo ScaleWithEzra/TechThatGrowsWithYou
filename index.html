@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EzzzCreative — Your website, handled.</title>
-  <meta name="description" content="Affordable websites and digital infrastructure for small businesses. Starting at $100/mo."/>
+  <title>EzzzCreative — Tech that grows with you.</title>
+  <meta name="description" content="Custom websites, systems, and strategy for businesses at every stage. Woman-owned. Human-first."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -15,141 +15,242 @@
       background: #EEF3FC;
       color: #0F1521;
       min-height: 100vh;
-      padding: 48px 20px 80px;
+      padding: 44px 20px 80px;
       -webkit-font-smoothing: antialiased;
     }
     .page { max-width: 480px; margin: 0 auto; }
 
-    /* ── Profile ── */
-    .profile { text-align: center; margin-bottom: 32px; }
+    /* ── Brand header ── */
+    .profile { text-align: center; margin-bottom: 28px; }
     .avatar-wrap {
-      width: 80px; height: 80px; border-radius: 16px;
-      margin: 0 auto 16px; overflow: hidden;
+      width: 76px; height: 76px; border-radius: 16px;
+      margin: 0 auto 14px; overflow: hidden;
       background: #1D60D4;
       display: flex; align-items: center; justify-content: center;
     }
     .avatar-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .avatar-letter {
-      font-size: 30px; font-weight: 800; color: #fff; letter-spacing: -1px;
-    }
-    .brand-name {
-      font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
-      color: #1D60D4; margin-bottom: 4px;
-    }
-    .brand-tagline { font-size: 14px; font-weight: 600; color: #0F1521; margin-bottom: 4px; }
+    .avatar-letter { font-size: 28px; font-weight: 800; color: #fff; }
+    .brand-name { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; color: #1D60D4; margin-bottom: 4px; }
+    .brand-tagline { font-size: 15px; font-weight: 700; color: #0F1521; margin-bottom: 4px; }
     .brand-sub { font-size: 12px; color: rgba(15,21,33,0.45); }
 
-    /* ── Value strip ── */
-    .value-strip {
-      display: flex; gap: 8px; justify-content: center;
-      flex-wrap: wrap; margin-bottom: 36px;
+    /* ── Social proof strip ── */
+    .social-proof {
+      display: flex; align-items: center; justify-content: center;
+      gap: 7px; margin-bottom: 22px; flex-wrap: wrap;
     }
-    .value-pill {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
-      background: #fff; border: 1px solid rgba(29,96,212,0.2);
-      color: #1D60D4; padding: 5px 12px; border-radius: 100px;
+    .sp-stars { color: #E91E8C; font-size: 14px; letter-spacing: 2px; }
+    .sp-badge {
+      font-size: 11px; font-weight: 700; color: rgba(15,21,33,0.45);
+      background: #fff; border: 1px solid rgba(29,96,212,0.12);
+      padding: 3px 10px; border-radius: 100px;
+    }
+    .sp-dot { color: rgba(15,21,33,0.2); font-size: 10px; }
+
+    /* ── Logo carousel ── */
+    .logo-bar { margin-bottom: 28px; }
+    .logo-bar-label {
+      text-align: center; font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(15,21,33,0.28); margin-bottom: 14px;
+    }
+    .logo-scroll {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    }
+    .logo-track {
+      display: flex; align-items: center; gap: 44px;
+      width: max-content;
+      animation: scroll-logos 38s linear infinite;
+    }
+    .logo-track:hover { animation-play-state: paused; }
+    @keyframes scroll-logos {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .logo-item {
+      font-size: 13px; font-weight: 700; letter-spacing: -0.2px;
+      color: rgba(15,21,33,0.3); white-space: nowrap; flex-shrink: 0;
+      transition: color 0.2s; cursor: default;
+    }
+    .logo-item:hover { color: rgba(15,21,33,0.6); }
+
+    /* ── Quiz / form shell ── */
+    .quiz-wrap {
+      background: #0F1521; border-radius: 22px;
+      padding: 28px 24px 26px; color: #EDEDEA;
+      margin-bottom: 24px;
     }
 
-    /* ── Quiz / funnel ── */
-    .quiz-section { margin-bottom: 28px; }
-    .quiz-label {
-      font-size: 10px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: rgba(15,21,33,0.35);
-      margin-bottom: 12px;
+    /* Step visibility */
+    .step { display: none; }
+    .step.active {
+      display: block;
+      animation: fadeUp 0.22s ease-out;
     }
-    .quiz-headline {
-      font-size: 20px; font-weight: 800; letter-spacing: -0.4px;
-      margin-bottom: 16px; line-height: 1.2;
-    }
-    .quiz-options { display: flex; flex-direction: column; gap: 10px; }
-    .quiz-btn {
-      display: flex; align-items: center; gap: 14px;
-      background: #fff; border: 2px solid #DDEAFC;
-      border-radius: 14px; padding: 16px 18px;
-      text-align: left; cursor: pointer; width: 100%;
-      transition: border-color 0.15s, transform 0.12s, box-shadow 0.15s;
-      font-family: inherit;
-    }
-    .quiz-btn:hover { border-color: #1D60D4; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(29,96,212,0.12); }
-    .quiz-btn.active { border-color: #1D60D4; background: #F5F8FF; }
-    .quiz-btn-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: #EEF3FC; display: flex; align-items: center;
-      justify-content: center; flex-shrink: 0; font-size: 20px;
-    }
-    .quiz-btn-text { flex: 1; }
-    .quiz-btn-title { font-size: 14px; font-weight: 700; }
-    .quiz-btn-sub { font-size: 12px; color: rgba(15,21,33,0.45); margin-top: 2px; }
-    .quiz-btn-arrow { font-size: 16px; color: rgba(15,21,33,0.25); }
-
-    /* ── Plan reveal cards ── */
-    .plan-card {
-      display: none; margin-top: 16px;
-      background: #0F1521; border-radius: 20px;
-      padding: 28px 24px 24px; color: #EDEDEA;
-      animation: slideIn 0.25s ease-out;
-    }
-    .plan-card.visible { display: block; }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(8px); }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .plan-tag {
+
+    /* Progress dots */
+    .progress { display: flex; gap: 6px; margin-bottom: 22px; }
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(237,237,234,0.2);
+      transition: background 0.3s;
+    }
+    .dot.done { background: #1D60D4; }
+    .dot.active { background: #E91E8C; width: 18px; border-radius: 3px; }
+
+    /* Step labels */
+    .step-label {
       font-size: 10px; font-weight: 700; letter-spacing: 2px;
       text-transform: uppercase; color: #E91E8C; margin-bottom: 8px;
     }
-    .plan-price {
-      font-size: 36px; font-weight: 800; letter-spacing: -1px;
-      color: #fff; margin-bottom: 4px;
+    .step-q {
+      font-size: 19px; font-weight: 800; letter-spacing: -0.4px;
+      line-height: 1.2; margin-bottom: 6px;
     }
-    .plan-price sup { font-size: 0.45em; vertical-align: super; opacity: 0.6; }
-    .plan-price sub { font-size: 0.35em; vertical-align: baseline; opacity: 0.5; font-weight: 500; }
-    .plan-desc { font-size: 13px; color: rgba(237,237,234,0.55); line-height: 1.6; margin-bottom: 18px; }
-    .plan-features { list-style: none; margin-bottom: 22px; display: flex; flex-direction: column; gap: 7px; }
-    .plan-features li { font-size: 13px; color: rgba(237,237,234,0.75); display: flex; gap: 8px; align-items: flex-start; }
-    .plan-features li::before { content: "✓"; color: #5BADFF; font-weight: 700; flex-shrink: 0; }
-    .plan-cta {
+    .step-sub { font-size: 13px; color: rgba(237,237,234,0.45); margin-bottom: 20px; line-height: 1.5; }
+
+    /* Option buttons */
+    .options { display: flex; flex-direction: column; gap: 9px; }
+    .opt {
+      display: flex; align-items: center; gap: 13px;
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 13px; padding: 14px 16px;
+      cursor: pointer; text-align: left; width: 100%;
+      font-family: inherit; color: #EDEDEA;
+      transition: border-color 0.15s, background 0.15s, transform 0.1s;
+    }
+    .opt:hover { border-color: #1D60D4; background: rgba(29,96,212,0.12); transform: translateY(-1px); }
+    .opt:active { transform: translateY(0); }
+    .opt-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .opt-text { flex: 1; }
+    .opt-title { font-size: 14px; font-weight: 700; }
+    .opt-sub { font-size: 12px; color: rgba(237,237,234,0.45); margin-top: 2px; }
+    .opt-arrow { font-size: 14px; color: rgba(237,237,234,0.2); }
+
+    /* Contact form fields */
+    .fields { display: flex; flex-direction: column; gap: 11px; margin-bottom: 18px; }
+    .field-wrap { display: flex; flex-direction: column; gap: 5px; }
+    .field-label { font-size: 11px; font-weight: 700; color: rgba(237,237,234,0.5); letter-spacing: 0.5px; }
+    .field-input, .field-textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 10px; padding: 11px 14px;
+      font-family: inherit; font-size: 14px; color: #EDEDEA;
+      outline: none; transition: border-color 0.15s;
+      width: 100%;
+    }
+    .field-input::placeholder, .field-textarea::placeholder { color: rgba(237,237,234,0.3); }
+    .field-input:focus, .field-textarea:focus { border-color: #1D60D4; }
+    .field-textarea { resize: none; min-height: 72px; }
+    .field-optional { font-size: 10px; color: rgba(237,237,234,0.3); margin-left: 4px; font-weight: 400; }
+
+    /* Buttons */
+    .btn-primary {
       display: block; width: 100%; text-align: center;
       background: #1D60D4; color: #fff;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 14px; font-weight: 700;
-      padding: 14px 24px; border-radius: 100px;
-      text-decoration: none; transition: opacity 0.2s, transform 0.12s;
+      padding: 14px; border-radius: 100px; border: none;
+      cursor: pointer; transition: opacity 0.2s, transform 0.12s;
     }
-    .plan-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-    .plan-cta.pink { background: #E91E8C; }
-    .plan-link {
-      display: block; text-align: center; margin-top: 12px;
-      font-size: 12px; color: rgba(237,237,234,0.4);
-      text-decoration: underline; text-underline-offset: 3px;
-      cursor: pointer;
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary.pink { background: #E91E8C; }
+    .btn-back {
+      background: none; border: none; color: rgba(237,237,234,0.35);
+      font-family: inherit; font-size: 12px; cursor: pointer;
+      padding: 10px 0 0; display: block; text-align: center;
+      transition: color 0.15s;
     }
-    .plan-link:hover { color: rgba(237,237,234,0.7); }
+    .btn-back:hover { color: rgba(237,237,234,0.7); }
 
-    /* ── Small links ── */
+    /* Thank you / result screen */
+    .result-icon { font-size: 36px; margin-bottom: 12px; }
+    .result-name { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 8px; }
+    .result-msg { font-size: 13px; color: rgba(237,237,234,0.55); line-height: 1.6; margin-bottom: 22px; }
+    .result-action {
+      display: block; text-align: center; background: #E91E8C; color: #fff;
+      font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700;
+      padding: 13px 24px; border-radius: 100px; text-decoration: none;
+      transition: opacity 0.2s; margin-bottom: 10px;
+    }
+    .result-action:hover { opacity: 0.88; }
+    .result-action.secondary {
+      background: rgba(255,255,255,0.08); color: rgba(237,237,234,0.7);
+    }
+
+    /* ── Explore links ── */
     .section-label {
       font-size: 10px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: rgba(15,21,33,0.35);
-      margin-bottom: 12px; margin-top: 32px;
+      text-transform: uppercase; color: rgba(15,21,33,0.3);
+      margin-bottom: 11px;
     }
     .links { display: flex; flex-direction: column; gap: 8px; }
     .link-card {
       display: flex; align-items: center; gap: 12px;
-      background: #fff; border: 1px solid rgba(29,96,212,0.12);
+      background: #fff; border: 1px solid rgba(29,96,212,0.1);
       border-radius: 12px; padding: 12px 16px;
       text-decoration: none; color: #0F1521;
       transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
     }
     .link-card:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(29,96,212,0.1); border-color: #1D60D4; }
-    .link-icon { width: 34px; height: 34px; border-radius: 8px; background: #EEF3FC; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .link-icon svg { width: 17px; height: 17px; }
+    .link-icon { width: 32px; height: 32px; border-radius: 8px; background: #EEF3FC; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .link-icon svg { width: 16px; height: 16px; }
     .link-text { flex: 1; }
     .link-title { font-size: 13px; font-weight: 700; }
     .link-sub { font-size: 11px; color: rgba(15,21,33,0.4); margin-top: 1px; }
     .link-arrow { font-size: 14px; color: rgba(15,21,33,0.2); }
 
+    /* ── Contact form ── */
+    .contact-form {
+      margin-top: 28px; background: #fff;
+      border-radius: 16px; border: 1px solid rgba(29,96,212,0.1);
+      padding: 22px 20px;
+    }
+    .cf-title { font-size: 14px; font-weight: 800; color: #0F1521; margin-bottom: 4px; }
+    .cf-sub { font-size: 12px; color: rgba(15,21,33,0.4); margin-bottom: 16px; }
+    .cf-fields { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+    .cf-input {
+      background: #F4F6FB; border: 1.5px solid rgba(29,96,212,0.1);
+      border-radius: 10px; padding: 11px 14px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 13px; color: #0F1521;
+      outline: none; transition: border-color 0.15s; width: 100%;
+    }
+    .cf-input::placeholder { color: rgba(15,21,33,0.3); }
+    .cf-input:focus { border-color: #1D60D4; }
+    .cf-textarea { resize: none; min-height: 70px; }
+    .cf-toggle { display: flex; gap: 18px; }
+    .cf-radio {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600; color: rgba(15,21,33,0.55); cursor: pointer;
+    }
+    .cf-radio input { accent-color: #1D60D4; cursor: pointer; }
+    .cf-submit {
+      display: block; width: 100%; text-align: center;
+      background: #1D60D4; color: #fff;
+      font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700;
+      padding: 13px; border-radius: 100px; border: none; cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .cf-submit:hover { opacity: 0.88; }
+    .cf-success { text-align: center; padding: 8px 0; }
+    .cf-success-icon { font-size: 30px; margin-bottom: 10px; }
+    .cf-success-title { font-size: 16px; font-weight: 800; margin-bottom: 5px; }
+    .cf-success-note { font-size: 12px; color: rgba(15,21,33,0.4); line-height: 1.5; }
+
     /* ── Footer ── */
-    .footer { text-align: center; margin-top: 36px; font-size: 11px; color: rgba(15,21,33,0.3); }
+    .footer { text-align: center; margin-top: 32px; font-size: 11px; color: rgba(15,21,33,0.3); }
     .footer a { color: rgba(15,21,33,0.3); text-decoration: none; }
     .footer a:hover { color: #1D60D4; }
   </style>
@@ -160,111 +261,192 @@
   <!-- BRAND HEADER -->
   <div class="profile">
     <div class="avatar-wrap">
-      <!-- swap src to your logo file once available -->
       <img src="./IMG_3502%203.png" alt="EzzzCreative"
            onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'avatar-letter\'>E</span>'"/>
     </div>
     <div class="brand-name">EzzzCreative</div>
-    <div class="brand-tagline">Your website, handled.</div>
-    <div class="brand-sub">digital infrastructure for humans</div>
+    <div class="brand-tagline">Tech that grows with you.</div>
+    <div class="brand-sub">Custom consulting for businesses at every stage — from idea to launch and beyond.</div>
   </div>
 
-  <!-- VALUE PILLS -->
-  <div class="value-strip">
-    <span class="value-pill">woman-owned</span>
-    <span class="value-pill">human-first</span>
-    <span class="value-pill">no tech overwhelm</span>
-    <span class="value-pill">🌱 climate-conscious</span>
+  <!-- SOCIAL PROOF STRIP -->
+  <div class="social-proof">
+    <span class="sp-stars">★★★★★</span>
+    <span class="sp-dot">·</span>
+    <span class="sp-badge">woman-owned</span>
+    <span class="sp-dot">·</span>
+    <span class="sp-badge">🌱 climate-conscious</span>
   </div>
 
-  <!-- QUIZ FUNNEL -->
-  <div class="quiz-section">
-    <p class="quiz-label">Find your fit</p>
-    <h2 class="quiz-headline">Where are you at<br>with your digital presence?</h2>
-    <div class="quiz-options">
-
-      <button class="quiz-btn" onclick="showPlan('starter', this)">
-        <div class="quiz-btn-icon">🌱</div>
-        <div class="quiz-btn-text">
-          <div class="quiz-btn-title">Just getting started</div>
-          <div class="quiz-btn-sub">I need a website and don't know where to begin</div>
-        </div>
-        <span class="quiz-btn-arrow">›</span>
-      </button>
-
-      <button class="quiz-btn" onclick="showPlan('growth', this)">
-        <div class="quiz-btn-icon">🚀</div>
-        <div class="quiz-btn-text">
-          <div class="quiz-btn-title">Ready to grow</div>
-          <div class="quiz-btn-sub">I have a presence but need strategy + real support</div>
-        </div>
-        <span class="quiz-btn-arrow">›</span>
-      </button>
-
-      <button class="quiz-btn" onclick="showPlan('unsure', this)">
-        <div class="quiz-btn-icon">🤔</div>
-        <div class="quiz-btn-text">
-          <div class="quiz-btn-title">Not sure yet</div>
-          <div class="quiz-btn-sub">Tell me what you're working on and I'll point you right</div>
-        </div>
-        <span class="quiz-btn-arrow">›</span>
-      </button>
-
-    </div>
-
-    <!-- Starter reveal -->
-    <div class="plan-card" id="plan-starter">
-      <div class="plan-tag">Starter Plan</div>
-      <div class="plan-price"><sup>$</sup>100<sub>/mo</sub></div>
-      <p class="plan-desc">We build your site free. $100/month keeps a dedicated designer in your corner — updates, fixes, and whatever comes next, handled in 48 hours.</p>
-      <ul class="plan-features">
-        <li>Website built for you at no upfront cost</li>
-        <li>Design updates & new pages in 48 hrs</li>
-        <li>Hosting, security & maintenance included</li>
-        <li>Cancel anytime, no lock-in</li>
-      </ul>
-      <a class="plan-cta" href="https://buy.stripe.com/4gM8wQaYtaTDbQm6Ef0kE02" target="_blank" rel="noopener">
-        Lock in Starter — $100/mo →
-      </a>
-      <a class="plan-link" onclick="showPlan('growth', document.querySelectorAll('.quiz-btn')[1])">
-        See Growth plan ($300/mo) →
-      </a>
-    </div>
-
-    <!-- Growth reveal -->
-    <div class="plan-card" id="plan-growth">
-      <div class="plan-tag">Growth Plan — Most popular</div>
-      <div class="plan-price"><sup>$</sup>300<sub>/mo</sub></div>
-      <p class="plan-desc">Everything in Starter plus up to 3 hours of consulting each month — strategy, marketing direction, and a real partner invested in your business growing.</p>
-      <ul class="plan-features">
-        <li>Everything in Starter</li>
-        <li>3 hrs/mo consulting (strategy, marketing, direction)</li>
-        <li>Monthly check-in calls</li>
-        <li>Priority 24-hour turnaround</li>
-      </ul>
-      <a class="plan-cta pink" href="https://buy.stripe.com/dRmfZi4A5f9T9Ie3s30kE01" target="_blank" rel="noopener">
-        Lock in Growth — $300/mo →
-      </a>
-      <a class="plan-link" onclick="showPlan('starter', document.querySelectorAll('.quiz-btn')[0])">
-        See Starter plan ($100/mo) →
-      </a>
-    </div>
-
-    <!-- Not sure reveal -->
-    <div class="plan-card" id="plan-unsure">
-      <div class="plan-tag">Let's figure it out</div>
-      <div class="plan-price" style="font-size:28px; letter-spacing: -0.5px;">Tell me<br>what you need.</div>
-      <p class="plan-desc" style="margin-top:12px;">Answer a few quick questions and I'll match you with the right starting point — no pressure, no sales pitch.</p>
-      <a class="plan-cta" href="https://tally.so/r/rjdxP5" target="_blank" rel="noopener">
-        Start the conversation →
-      </a>
+  <!-- LOGO CAROUSEL -->
+  <div class="logo-bar">
+    <p class="logo-bar-label">Trusted by</p>
+    <div class="logo-scroll">
+      <div class="logo-track">
+        <span class="logo-item">Framer</span>
+        <span class="logo-item">Figma</span>
+        <span class="logo-item">LJM Construction</span>
+        <span class="logo-item">Adobe</span>
+        <span class="logo-item">CMHN</span>
+        <span class="logo-item">Canva</span>
+        <span class="logo-item">CSIT Solutions</span>
+        <span class="logo-item">HubSpot</span>
+        <span class="logo-item">Uplift Teams</span>
+        <span class="logo-item">Wix</span>
+        <span class="logo-item">WGU</span>
+        <span class="logo-item">Google</span>
+        <!-- duplicate for seamless loop -->
+        <span class="logo-item">Framer</span>
+        <span class="logo-item">Figma</span>
+        <span class="logo-item">LJM Construction</span>
+        <span class="logo-item">Adobe</span>
+        <span class="logo-item">CMHN</span>
+        <span class="logo-item">Canva</span>
+        <span class="logo-item">CSIT Solutions</span>
+        <span class="logo-item">HubSpot</span>
+        <span class="logo-item">Uplift Teams</span>
+        <span class="logo-item">Wix</span>
+        <span class="logo-item">WGU</span>
+        <span class="logo-item">Google</span>
+      </div>
     </div>
   </div>
+
+  <!-- MULTI-STEP FORM -->
+  <div class="quiz-wrap">
+
+    <!-- Progress indicator -->
+    <div class="progress" id="progress">
+      <div class="dot active" id="dot-0"></div>
+      <div class="dot" id="dot-1"></div>
+      <div class="dot" id="dot-2"></div>
+      <div class="dot" id="dot-3"></div>
+    </div>
+
+    <!-- STEP 0: What do you need? -->
+    <div class="step active" id="step-0">
+      <p class="step-label">Step 1 of 3</p>
+      <h2 class="step-q">What does your business need most?</h2>
+      <p class="step-sub">We'll find the right fit — no jargon, no pressure.</p>
+      <div class="options">
+        <button class="opt" onclick="pick('need','website')">
+          <div class="opt-icon">🌐</div>
+          <div class="opt-text">
+            <div class="opt-title">I need a digital presence</div>
+            <div class="opt-sub">No website yet, or the one I have isn't pulling its weight</div>
+          </div>
+          <span class="opt-arrow">›</span>
+        </button>
+        <button class="opt" onclick="pick('need','systems')">
+          <div class="opt-icon">⚡</div>
+          <div class="opt-text">
+            <div class="opt-title">I need to work smarter</div>
+            <div class="opt-sub">My tools and workflows feel chaotic — I'm doing too much manually</div>
+          </div>
+          <span class="opt-arrow">›</span>
+        </button>
+        <button class="opt" onclick="pick('need','strategy')">
+          <div class="opt-icon">📈</div>
+          <div class="opt-text">
+            <div class="opt-title">I want more customers</div>
+            <div class="opt-sub">The foundation is there — I need a real plan to grow</div>
+          </div>
+          <span class="opt-arrow">›</span>
+        </button>
+        <button class="opt" onclick="pick('need','unsure')">
+          <div class="opt-icon">🤔</div>
+          <div class="opt-text">
+            <div class="opt-title">Not sure where to start</div>
+            <div class="opt-sub">Something feels off — let's figure it out together</div>
+          </div>
+          <span class="opt-arrow">›</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 1: Budget -->
+    <div class="step" id="step-1">
+      <p class="step-label">Step 2 of 3</p>
+      <h2 class="step-q">What's your ballpark budget?</h2>
+      <p class="step-sub">No wrong answer — this just helps us point you the right way.</p>
+      <div class="options">
+        <button class="opt" onclick="pick('budget','low')">
+          <div class="opt-icon">💚</div>
+          <div class="opt-text">
+            <div class="opt-title">Under $300/mo</div>
+            <div class="opt-sub">Starting small, keeping it lean</div>
+          </div>
+          <span class="opt-arrow">›</span>
+        </button>
+        <button class="opt" onclick="pick('budget','mid')">
+          <div class="opt-icon">🔵</div>
+          <div class="opt-text">
+            <div class="opt-title">$300 – $1,000</div>
+            <div class="opt-sub">I'm serious about this and willing to invest</div>
+          </div>
+          <span class="opt-arrow">›</span>
+        </button>
+        <button class="opt" onclick="pick('budget','high')">
+          <div class="opt-icon">⚡</div>
+          <div class="opt-text">
+            <div class="opt-title">$1,000+</div>
+            <div class="opt-sub">This is a real investment in my business</div>
+          </div>
+          <span class="opt-arrow">›</span>
+        </button>
+        <button class="opt" onclick="pick('budget','unknown')">
+          <div class="opt-icon">🤔</div>
+          <div class="opt-text">
+            <div class="opt-title">I don't know yet</div>
+            <div class="opt-sub">Let's figure that out together</div>
+          </div>
+          <span class="opt-arrow">›</span>
+        </button>
+      </div>
+      <button class="btn-back" onclick="goBack(0)">← Back</button>
+    </div>
+
+    <!-- STEP 2: Contact info -->
+    <div class="step" id="step-2">
+      <p class="step-label">Step 3 of 3</p>
+      <h2 class="step-q">Almost there — where should we send your match?</h2>
+      <p class="step-sub">We'll reach out within 24 hours with your custom recommendation.</p>
+      <div class="fields">
+        <div class="field-wrap">
+          <label class="field-label">YOUR NAME</label>
+          <input class="field-input" id="f-name" type="text" placeholder="First name" autocomplete="given-name"/>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">EMAIL</label>
+          <input class="field-input" id="f-email" type="email" placeholder="you@example.com" autocomplete="email"/>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">PHONE <span class="field-optional">(optional — for SMS updates)</span></label>
+          <input class="field-input" id="f-phone" type="tel" placeholder="(503) 555-0100" autocomplete="tel"/>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label">ANYTHING ELSE? <span class="field-optional">(optional)</span></label>
+          <textarea class="field-textarea" id="f-notes" placeholder="Tell us what's going on — even a sentence helps."></textarea>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="submitForm()">Get my recommendation →</button>
+      <button class="btn-back" onclick="goBack(1)">← Back</button>
+    </div>
+
+    <!-- STEP 3: Thank you / result -->
+    <div class="step" id="step-3">
+      <div class="result-icon" id="result-icon">✨</div>
+      <h2 class="result-name" id="result-name">You're in.</h2>
+      <p class="result-msg" id="result-msg">We'll be in touch shortly.</p>
+      <a class="result-action" id="result-cta" href="#" target="_blank" rel="noopener">See your match →</a>
+      <a class="result-action secondary" href="https://ezzzcreative.com" target="_blank" rel="noopener">Explore ezzzcreative.com</a>
+    </div>
+
+  </div><!-- end quiz-wrap -->
 
   <!-- SECONDARY LINKS -->
-  <p class="section-label">Explore more</p>
+  <p class="section-label">Explore</p>
   <div class="links">
-
     <a class="link-card" href="https://ezzzcreative.com" target="_blank" rel="noopener">
       <div class="link-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="#1D60D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -272,62 +454,215 @@
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
         </svg>
       </div>
-      <div class="link-text"><div class="link-title">Full website</div><div class="link-sub">ezzzcreative.com</div></div>
+      <div class="link-text"><div class="link-title">Get your brand online</div><div class="link-sub">Simple websites from $100/mo · no upfront cost</div></div>
       <span class="link-arrow">›</span>
     </a>
-
+    <a class="link-card" href="https://ezraseal.dev" target="_blank" rel="noopener">
+      <div class="link-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1D60D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <div class="link-text"><div class="link-title">Meet Your Designer</div><div class="link-sub">Portfolio & case studies · ezraseal.dev</div></div>
+      <span class="link-arrow">›</span>
+    </a>
     <a class="link-card" href="https://substack.com/@designthedifference" target="_blank" rel="noopener">
       <div class="link-icon">
         <svg viewBox="0 0 24 24" fill="#1D60D4">
           <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
         </svg>
       </div>
-      <div class="link-text"><div class="link-title">Design the Difference</div><div class="link-sub">Tech insights for non-techies · Substack</div></div>
+      <div class="link-text"><div class="link-title">Design the Difference</div><div class="link-sub">Tech insights for humans · Substack</div></div>
       <span class="link-arrow">›</span>
     </a>
+  </div>
 
-    <a class="link-card" href="https://www.instagram.com/literally.ez" target="_blank" rel="noopener">
-      <div class="link-icon">
-        <svg viewBox="0 0 24 24" fill="#1D60D4">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-        </svg>
+  <!-- DIRECT CONTACT FORM -->
+  <div class="contact-form" id="cf-wrap">
+    <div id="cf-form-inner">
+      <p class="cf-title">Got a quick question?</p>
+      <p class="cf-sub">Drop it here and I'll get back to you — usually within 24 hours.</p>
+      <div class="cf-fields">
+        <textarea class="cf-input cf-textarea" id="cf-question" placeholder="What's on your mind? Even a sentence helps." rows="3"></textarea>
+        <input class="cf-input" id="cf-name" type="text" placeholder="Your name" autocomplete="given-name"/>
+        <div>
+          <p style="font-size:11px;font-weight:700;color:rgba(15,21,33,0.45);letter-spacing:0.5px;margin-bottom:8px;">HOW SHOULD I REPLY?</p>
+          <div class="cf-toggle">
+            <label class="cf-radio">
+              <input type="radio" name="cf-reply" value="email" checked onchange="cfToggle('email')"/> Email
+            </label>
+            <label class="cf-radio">
+              <input type="radio" name="cf-reply" value="phone" onchange="cfToggle('phone')"/> Phone / SMS
+            </label>
+          </div>
+        </div>
+        <input class="cf-input" id="cf-contact" type="email" placeholder="you@example.com" autocomplete="email"/>
       </div>
-      <div class="link-text"><div class="link-title">Behind the build</div><div class="link-sub">@literally.ez on Instagram</div></div>
-      <span class="link-arrow">›</span>
-    </a>
-
+      <button class="cf-submit" onclick="cfSubmit()">Send my question →</button>
+    </div>
+    <div class="cf-success" id="cf-success" style="display:none;">
+      <div class="cf-success-icon">✉️</div>
+      <div class="cf-success-title" id="cf-success-name">Got it!</div>
+      <div class="cf-success-note">I'll be in touch soon. Thanks for reaching out.</div>
+    </div>
   </div>
 
   <div class="footer">
     <a href="https://ezzzcreative.com">ezzzcreative.com</a> · woman-owned · a portion of every project goes to carbon removal 🌱
   </div>
 
-</div>
+</div><!-- end page -->
 
 <script>
-  var active = null;
+  // ── State ──
+  var state = { need: null, budget: null };
 
-  function showPlan(plan, btn) {
-    // Deactivate all buttons
-    document.querySelectorAll('.quiz-btn').forEach(function(b) { b.classList.remove('active'); });
-    // Hide all cards
-    document.querySelectorAll('.plan-card').forEach(function(c) { c.classList.remove('visible'); });
+  // ── Stripe links ──
+  var STRIPE = {
+    starter: 'https://buy.stripe.com/4gM8wQaYtaTDbQm6Ef0kE02',
+    growth:  'https://buy.stripe.com/dRmfZi4A5f9T9Ie3s30kE01'
+  };
 
-    if (active === plan) {
-      // Clicking same option again → close it
-      active = null;
-      return;
+  // ── Make.com webhook ──
+  // TO SET UP: Create a new scenario in Make.com → Custom Webhook trigger
+  // Copy the webhook URL and paste it below (replace the placeholder)
+  var WEBHOOK_URL = 'REPLACE_WITH_MAKE_WEBHOOK_URL';
+
+  // ── Quiz navigation ──
+  function pick(key, value) {
+    state[key] = value;
+    if (key === 'need') goTo(1);
+    if (key === 'budget') goTo(2);
+  }
+
+  function goTo(n) {
+    document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+    document.getElementById('step-' + n).classList.add('active');
+    updateDots(n);
+    window.scrollTo({ top: document.querySelector('.quiz-wrap').offsetTop - 20, behavior: 'smooth' });
+  }
+
+  function goBack(n) { goTo(n); }
+
+  function updateDots(current) {
+    [0,1,2,3].forEach(function(i) {
+      var d = document.getElementById('dot-' + i);
+      d.className = 'dot';
+      if (i < current)  d.classList.add('done');
+      if (i === current) d.classList.add('active');
+    });
+  }
+
+  // ── Form submission ──
+  function submitForm() {
+    var name  = document.getElementById('f-name').value.trim();
+    var email = document.getElementById('f-email').value.trim();
+    var phone = document.getElementById('f-phone').value.trim();
+    var notes = document.getElementById('f-notes').value.trim();
+
+    if (!name)  { document.getElementById('f-name').focus(); return; }
+    if (!email || !email.includes('@')) { document.getElementById('f-email').focus(); return; }
+
+    // Determine result based on path
+    var result = getResult(state.need, state.budget);
+
+    // Show thank-you screen immediately
+    showResult(name, email, result);
+    goTo(3);
+
+    // Fire webhook in background (silent fail ok)
+    if (WEBHOOK_URL !== 'REPLACE_WITH_MAKE_WEBHOOK_URL') {
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name, email: email, phone: phone,
+          need: state.need, budget: state.budget,
+          notes: notes, source: 'ezzzcreative-bio'
+        })
+      }).catch(function() {}); // silent fail
     }
+  }
 
-    // Activate selected
-    btn.classList.add('active');
-    document.getElementById('plan-' + plan).classList.add('visible');
-    active = plan;
+  // ── Result logic ──
+  function getResult(need, budget) {
+    if (budget === 'high') return 'call';
+    if (need === 'website' && (budget === 'low' || budget === 'unknown')) return 'starter';
+    if (need === 'website' && budget === 'mid') return 'growth';
+    if (need === 'systems' || need === 'strategy') return budget === 'low' ? 'growth' : 'call';
+    if (need === 'unsure') return 'call';
+    return 'starter';
+  }
 
-    // Smooth scroll to card
-    setTimeout(function() {
-      document.getElementById('plan-' + plan).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 50);
+  // ── Contact form ──
+  function cfToggle(mode) {
+    var input = document.getElementById('cf-contact');
+    if (mode === 'email') {
+      input.type = 'email';
+      input.placeholder = 'you@example.com';
+      input.autocomplete = 'email';
+    } else {
+      input.type = 'tel';
+      input.placeholder = '(503) 555-0100';
+      input.autocomplete = 'tel';
+    }
+    input.value = '';
+  }
+
+  function cfSubmit() {
+    var question = document.getElementById('cf-question').value.trim();
+    var name     = document.getElementById('cf-name').value.trim();
+    var contact  = document.getElementById('cf-contact').value.trim();
+    var mode     = document.querySelector('input[name="cf-reply"]:checked').value;
+
+    if (!question) { document.getElementById('cf-question').focus(); return; }
+    if (!name)     { document.getElementById('cf-name').focus(); return; }
+    if (!contact)  { document.getElementById('cf-contact').focus(); return; }
+
+    // Show success immediately
+    var first = name.split(' ')[0];
+    document.getElementById('cf-success-name').textContent = 'Got it, ' + first + '! ✉️';
+    document.getElementById('cf-form-inner').style.display = 'none';
+    document.getElementById('cf-success').style.display = 'block';
+
+    // Fire webhook in background
+    if (WEBHOOK_URL !== 'REPLACE_WITH_MAKE_WEBHOOK_URL') {
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name, contact: contact, reply_via: mode,
+          question: question, source: 'ezzzcreative-bio-contact'
+        })
+      }).catch(function() {});
+    }
+  }
+
+  function showResult(name, email, result) {
+    var first = name.split(' ')[0];
+    document.getElementById('result-name').textContent = 'You\'re in, ' + first + '. ✨';
+
+    var msg = document.getElementById('result-msg');
+    var cta = document.getElementById('result-cta');
+    var icon = document.getElementById('result-icon');
+
+    if (result === 'starter') {
+      icon.textContent = '🌱';
+      msg.textContent = 'Looks like our Starter plan is the right fit — a dedicated designer in your corner for $100/mo, zero upfront. We\'ll confirm at ' + email + ' within 24 hours.';
+      cta.textContent = 'Lock in Starter — $100/mo →';
+      cta.href = STRIPE.starter;
+    } else if (result === 'growth') {
+      icon.textContent = '📈';
+      msg.textContent = 'You sound like a Growth plan person — a full designer + up to 3 hrs of consulting every month for $300/mo. Confirmation coming to ' + email + '.';
+      cta.textContent = 'Lock in Growth — $300/mo →';
+      cta.href = STRIPE.growth;
+    } else {
+      icon.textContent = '⚡';
+      msg.innerHTML = 'This sounds like something worth a real conversation. We\'ll reach out to <strong>' + email + '</strong> to schedule a quick discovery call — no pitch, just figuring out the right fit.';
+      cta.textContent = 'In the meantime → ezzzcreative.com';
+      cta.href = 'https://ezzzcreative.com';
+    }
   }
 </script>
 </body>
